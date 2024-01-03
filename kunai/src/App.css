@@ -24,10 +24,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +32,114 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.Appli {
+  text-align: center;
+}
+
+.App-headers {
+  background-color: #282c34;
+  padding: 20px;
+  color: rgb(187, 76, 76);
+}
+
+.App-body {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+
+.App-sidebar {
+  width: 30%;
+  
+}
+.App-container label {
+  display: flex;
+  flex-direction:justify;
+  margin-bottom: 30px;
+}
+
+.App-main {
+  position: absolute;
+  top: 1;
+  right: 0;
+  color: #0800ff; /* Replace with your desired text color */
+  width: 60%;
+}
+
+.App-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: #8989c7;
+  border: 1px solid #219fed;
+  border-radius: 5px;
+  padding: 60px;
+  margin-bottom: 15px;
+  /* text-align: left; */
+  align-items: left;
+
+  top: 5;
+  
+}
+
+.repo-description {
+  color: #121314;
+}
+
+.repo-url {
+  font-style: italic;
+}
+
+.repo-branches {
+  margin-top: 10px;
+}
+
+.repo-branches li {
+  list-style-type: none;
+  margin-bottom: 10px;
+  color: #121314;
+}
+
+.repo-branches li a {
+  color: #219fed;
+}
+
+.repo-branches li a:hover {
+  text-decoration: underline;
+}
+
+.repo-branches li a:visited {
+  color: #219fed;
+}
+
+.repo-branches li:last-child {
+  margin-bottom: 0;
+}
+
+.repo-branches li:last-child a {
+  color: #121314;
+}
+
+.repo-branches li:last-child a:hover {
+  text-decoration: none;
+}
+
+.repo-branches li:last-child a:visited {
+  color: #121314;
+}
+
+.repo-branches li:last-child a:visited:hover {
+  text-decoration: underline;
+}
+
+.repo-branches li:last-child a:hover {
+  text-decoration: none;
+}
+
