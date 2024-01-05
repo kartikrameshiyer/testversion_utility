@@ -1,110 +1,303 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --lighting-color: #0089b7;
+  --dark-color: #003d62;
+  --darker-color: #003251;
+  --secondary-color: #fff700;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-.Appli {
-  text-align: center;
+html {
+  font-size: 62.5%;
 }
-.App-headers {
-  background-color: #282c34;
-  padding: 20px;
-  color: rgb(187, 76, 76);
+body,
+html {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  line-height: 1.4;
+  scroll-behavior: smooth;
+  color: white;
 }
-.App-body {
+body {
+  font-size: 1.4rem;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+ul {
+  list-style: none;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--lighting-color);
+}
+
+section {
+  scroll-margin-top: 50px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+nav ul {
+  display: flex;
+  gap: 1rem;
+}
+nav li {
+  font-size: 1.8rem;
+  border-bottom: 0.4rem transparent solid;
+  transition: 0.3s ease-in-out;
+}
+nav li:hover {
+  border-bottom: 0.4rem var(--secondary-color) solid;
+  transition: 0.3s ease-in-out;
+}
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+#hero {
+  background: var(--dark-color);
+  padding: 4rem 0;
+  border-bottom: 4px solid var(--lighting-color);
+  max-height: 100vh;
+}
+#hero .container {
   display: flex;
   justify-content: space-around;
-  padding: 50px;
-}
-.App-sidebar {
-  height: 100%; /* Increase the height as needed */
-  position:fixed;
-  padding-top: 20;
-  background-color: #808794;
-  vertical-align: auto;
-  
-}
-.App-container label {
-  display: flex;
-  margin: 2rem 1rem;
-  box-shadow: 0px 5px 4px rgba(221, 221, 221, 0.25);
   align-items: center;
-  border: 1px solid #e2e2e2;
+}
+.hero_content {
+  display: grid;
+  place-items: center;
+}
+
+#hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hi_text {
+  font-size: 6rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+.name_text {
+  font-size: 5rem;
+}
+
+#hero h2 {
+  font-size: 4rem;
+  font-weight: bold;
+
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */ /* Adjust as needed */
+  animation: typing 5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+/* Project Section */
+
+#project {
+  background: var(--darker-color);
+}
+
+#project h2 {
+  font-size: 6rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+.project_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+.grid_item {
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
   border-radius: 0.5rem;
   overflow: hidden;
+  transition: 0.2s ease-in-out;
 }
-.App-container label input {
-  margin-left: 100px; /* Adds some space between the label and the text box */
-  border: 1px solid #ccc; /* Light gray border */
-  border-radius: 4px; /* Rounded corners */
-  padding: 5px 10px; /* Padding inside the text box */
+.card:hover {
+  transform: scale(1.05);
+  transition: 1s ease-in-out;
 }
-.App-container label input {
-  margin-left: 10px; /* Adds some space between the label and the text box */
-  border: 1px solid #ccc; /* Light gray border */
-  border-radius: 4px; /* Rounded corners */
-  padding: 5px 10px; /* Padding inside the text box */
+.card:hover img {
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+  opacity: 0.8;
 }
-.App-main {
-  position:fixed;
-  top: 1;
-  right: 0;
-  color: #0800ff; /* Replace with your desired text color */
-  width: 50%;
-  justify-items:end
+.card:hover .card_content {
+  background: white;
+  color: var(--dark-color);
+  transform: translateY(0px);
 }
 
-.App-container .large-button {
-  background-color: #4CAF50; /* Green background */
-  border: none; /* No border */
-  color: white; /* White text */
-  padding: 15px 32px; /* Padding */
-  text-align: center; /* Centered text */
-  text-decoration: none; /* No underline */
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer; /* Pointer cursor on hover */
-  border-radius: 4px; /* Rounded corners */
+.card_content {
+  padding: 2rem;
+  position: relative;
+  top: -6.5rem;
+  margin-bottom: -6.5rem;
+  transition: 0.5s ease-in-out;
+  transform: translateY(100px);
 }
-.App-container .large-button:hover {
-  background-color: #45a049; /* Darker green on hover */
+.card_content h3 {
+  text-align: center;
 }
 
-.repo-description {
-  color: #121314;
+/* Contact Section */
+#contact {
+  background: var(--dark-color);
 }
-.repo-url {
-  font-style: italic;
+
+#contact h2 {
+  font-size: 6rem;
+  text-align: center;
+  margin: 2rem 0;
 }
-.repo-branches {
+
+#contact .container {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  justify-content: center;
+}
+
+.top_contact {
+  max-width: 800px;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+}
+.contact_way {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.contact_way i {
+  font-size: 3rem;
+}
+.contact_way h3 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.bottom_contact {
+  max-width: 400px;
+  gap: 1rem;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+}
+
+/* Footer */
+
+footer {
+  background: var(--darker-color);
+  padding: 2rem;
+  color: white;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+/* Media Query */
+
+@media (max-width: 786px) {
+  html {
+    font-size: 40%;
+  }
+  #hero .container {
+    flex-direction: column;
+  }
+  .hero_image {
+    display: grid;
+    place-items: center;
+  }
+  #contact .container {
+    height: 70vh;
+  }
+}
+@media (max-width: 500px) {
+  html {
+    font-size: 32%;
+  }
+  #hero .container {
+    flex-direction: column;
+  }
+  .hero_image {
+    display: grid;
+    place-items: center;
+  }
+  #contact .container {
+    height: 50vh;
+  }
+}
+#repositories {
+  background: var(--dark-color);
+  padding: 2rem 0;
+  color: white;
+}
+
+.repo-container {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.repo-container button {
   margin-top: 10px;
 }
-.repo-branches li {
-  list-style-type: none;
-  margin-bottom: 10px;
-  color: #121314;
-}
-.repo-branches li a {
-  color: #219fed;
-}
-.repo-branches li a:hover {
-  text-decoration: underline;
-}
-.repo-branches li a:visited {
-  color: #219fed;
-}
-.repo-branches li:last-child {
-  margin-bottom: 0;
-}
-.repo-branches li:last-child a {
-  color: #121314;
-}
-.repo-branches li:last-child a:hover {
-  text-decoration: none;
-}
-.repo-branches li:last-child a:visited {
-  color: #121314;
-}
-.repo-branches li:last-child a:visited:hover {
-  text-decoration: underline;
-}
-.repo-branches li:last-child a:hover {
-  text-decoration: none;
-}
+
+
+
+
+
+
+
+
+
+
+
+
