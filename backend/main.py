@@ -25,11 +25,17 @@ def get_github_repos(username, token):
         print("Error:", e)
         return None
 
-def get_branches(repo_url):
-    branches_url = f"{repo_url}/branches?per_page=100"
+
+    
+
+def get_branches(username,repo_name,token):
+    
+    branches_url= f'https://api.github.com/repos/{username}/{repo_name}/branches'
+    headers = {"Authorization": f"{token}"}
+    #branches_url = f"{new_url}/branches?per_page=100"
 
     try:
-        response = requests.get(branches_url)
+        response = requests.get(branches_url, headers=headers)
 
         if response.status_code == 200:
             branches = response.json()
@@ -40,13 +46,14 @@ def get_branches(repo_url):
 
     except requests.exceptions.RequestException as e:
         print("Error:", e)
-        return None
+    return None
 
 @app.route("/")
 def index():
-    username = request.args.get("username")
-    token = request.args.get("token")
-    #token = "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"
+    username = "kartikrameshiyer"
+    token = "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"
+    # username = request.args.get("username")
+    # token = request.args.get("token")
     if not username or not token:
         return jsonify({"error": "Username and token are required parameters"})
     repos = get_github_repos(username, token)
@@ -60,8 +67,10 @@ def index():
                 "URL": repo["html_url"]
             }
             repo_url = repo["html_url"]
-            branches = get_branches(repo_url)
+            repo_name = repo["name"]
+            branches = get_branches(username,repo_name,token)
             if branches:
+                print("branches",branches)
                 repo_data["Branches"] = branches
             repo_info.append(repo_data)
         return jsonify({"repositories": repo_info})
